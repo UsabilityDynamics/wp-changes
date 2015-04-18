@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Changes Dashboard
+ * Plugin Name: Changes: Dashboard
  * Plugin URI: http://usabilitydynamics.com/
  * Description: Show changes.md on Dashboard.
  * Author: Usability Dynamics, Inc.
