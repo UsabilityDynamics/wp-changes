@@ -1,0 +1,1 @@
+Parses changes.md and displays it under Dashboard.

@@ -1,3 +1,34 @@
 {
-  "name": "wp-changes-dashboard"
+  "name": "wp-changes-dashboard",
+  "type": "wordpress-plugin",
+  "minimum-stability": "dev",
+  "author": {
+    "name": "UsabilityDynamics, Inc.",
+    "url": "https://usabilitydynamics.com"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://repository.usabilitydynamics.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UsabilityDynamics/wp-changes-dashboard.git"
+  },
+  "require": {
+    "php": ">=5.3",
+    "erusev/parsedown": "~1.1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~3.7",
+    "wp-cli/wp-cli": "~0.17"
+  },
+  "archive": {
+    "exclude": [
+      ".gitignore",
+      "node_modules",
+      "package.json"
+    ]
+  }
 }
