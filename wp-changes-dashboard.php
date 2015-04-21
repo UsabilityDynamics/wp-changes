@@ -3,9 +3,13 @@
  * Plugin Name: Changes: Dashboard
  * Plugin URI: http://usabilitydynamics.com/
  * Description: Show changes.md on Dashboard.
- * Author: Usability Dynamics, Inc.
- * Version: 0.1
- * Author URI: http://usabilitydynamics.com
+ * Version: 0.5.0
+ * Author: wpCloud.io
+ * Author URI: http://wpcloud.io/
+ * License: GPLv2 or later
+ * Network: True
+ * Domain Path: /static/locale/
+ * Text Domain: wp-cloud
  *
  */
 
@@ -14,15 +18,30 @@ add_action('template_redirect', function() {
   //die('dasf');
 });
 
+add_action('plugins_loaded', function() {
+
+  require_once( __DIR__ . '/vendor/autoload.php' );
+
+});
+
 add_action('admin_menu', function() {
+
 
   add_dashboard_page( 'Changes', 'Changes', 'manage_options', 'changes', function() {
 
-    $Parsedown = new Parsedown();
+    if( !class_exists( 'Parsedown' ) ) {
+      $Parsedown = new Parsedown();
+    }
 
     echo '<div class="wrap">';
     echo '<h2>Changes</h2>';
-    echo $Parsedown->text(file_get_contents( ABSPATH . '/changes.md' ));
+
+    if( isset( $Parsedown ) ) {
+      echo $Parsedown->text( file_get_contents( ABSPATH . '/changes.md' ));
+    } else {
+      echo "Missing Parsedown library.";
+    }
+
     echo "</div>";
 
   });
